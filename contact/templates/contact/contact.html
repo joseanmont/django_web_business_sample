@@ -1,0 +1,75 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+
+{% block title %} Contact {% endblock title %}
+
+{% block content %}
+
+    <section class="page-section about-heading">
+      <div class="container">
+        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{% static 'core/img/contact.jpg' %}" alt="">
+        <div class="about-heading-content">
+          <div class="row">
+            <div class="col-xl-9 col-lg-10 mx-auto">
+              <div class="bg-faded rounded p-5">
+                <h2 class="section-heading mb-4">
+                  <span class="section-heading-upper">Send us your inquiries</span>
+                  <span class="section-heading-lower">Contact us</span>
+                </h2>
+                <!--Contact form-->
+                {% comment %} 
+                {% if "ok" in request.GET %}
+                  <p><b>Thank you for your message! We will get back to you as soon as possible.</b></p>
+                {% endif %}
+                <form action="" method="POST">
+                  {% csrf_token %}
+                  <table>
+                    {{ form.as_table }}
+                  </table>
+                  <input type="submit" value="Send"/>
+                </form> 
+                {% endcomment %}
+
+                {% if "ok" in request.GET %}
+                  <p class="text-success"><b>Thank you for your message! We will get back to you as soon as possible.</b></p>
+                {% elif "failed" in request.GET %}
+                  <p class="text-danger"><b>We are sorry. Your message could not be sent, please try again later.</b></p>
+                {% endif %}
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>Name *</label>
+                        <div class="input-group">
+                            {{ form.name }}
+                        </div>
+                        {{ form.name.errors }}
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <div class="input-group">
+                            {{ form.email }}
+                        </div>
+                        {{ form.email.erros }}
+                    </div>
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <div class="input-group">
+                            {{ form.message }}
+                        </div>
+                        {{ form.message.errors }}
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" class="btn btn-primary btn-block py-2" value="Send">
+                    </div>
+                </form> 
+                <!-- End contact form -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

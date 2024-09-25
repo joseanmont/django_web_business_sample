@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+
+{% block title %} About {% endblock title %}
+
+{% block content %}
+
+  <section class="page-section about-heading">
+    <div class="container">
+      <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{% static 'img/about.jpg' %}" alt="">
+      <div class="about-heading-content">
+        <div class="row">
+          <div class="col-xl-9 col-lg-10 mx-auto">
+            <div class="bg-faded rounded p-5">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-upper">Italian tradition</span>
+                <span class="section-heading-lower">Our history</span>
+              </h2>
+              <p>Nam sollicitudin nec quam vitae sollicitudin. Nam id ullamcorper lectus. Praesent diam est, volutpat ut libero vel, scelerisque tincidunt ligula. Suspendisse commodo nisi a nibh commodo faucibus. Fusce accumsan velit laoreet lectus porttitor, in condimentum metus molestie. Sed sit amet mauris eget mi varius bibendum id nec elit. Vestibulum vestibulum, odio eget venenatis pulvinar, mauris libero porttitor lectus, eu accumsan mauris velit a enim. Maecenas hendrerit elementum placerat. Morbi ut enim ante. </p>
+              <p>Curabitur efficitur pellentesque tellus nec volutpat. In viverra mattis sem, facilisis condimentum mi
+                rutrum ut. Quisque ut pellentesque dui.Nullam eu vehicula metus. Pellentesque id interdum elit. Aenean
+                in efficitur enim.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% endblock %}
